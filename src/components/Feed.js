@@ -1,5 +1,7 @@
 import React from 'react'
 import {Container, Row,Col} from 'react-materialize'
+import AddPost from './AddPost'
+import Profile from './Profile'
 
 
 
@@ -7,13 +9,16 @@ export default () => {
     return (
         <Container>
             <Row>
-                <Col className="teal" s={12} m={4}>
-                    Profile
+                <Col>
+                    <Profile/>
                 </Col>
-                <Col className="red" s={12} m={8}>
-                    Feed
+                <Col s={12} m={4}>
+                    <AddPost/>
                 </Col>
+
             </Row>
+          
         </Container>
+        
     )
 }

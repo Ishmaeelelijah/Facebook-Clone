@@ -3,6 +3,7 @@ body{
 }
 
 .outerBox{
+  margin-top: 20px;
   width: 400px;
   padding: 20px;
   border-radius: 10px;
@@ -12,3 +13,4 @@ body{
   background-color: transparent;
   box-shadow: 0 0 0 transparent;
 }
+

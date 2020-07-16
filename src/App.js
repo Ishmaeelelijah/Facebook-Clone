@@ -7,31 +7,22 @@ import signIn from './api/signIn';
 import SignUp from './components/SignUp'
 import Feed from './components/Feed'
 import Navbar from './Reusable/NavBar'
+import SignIn from './components/SignIn';
+
 
 function App() {
  
-  // const onSingIn = () => {
-  //    const result = signIn(
-  //      'ishmaeelelijah2@gmail.com',
-  //       'password')
-  //   console.log(result);
-  // }
   const [stage, setStage] = useState("");
-  const onSingUp = () => {
-    const result = signUp(
-      'ishmaeelelijah2@gmail.com',
-       'password',
-       'Elie',
-       'Ishmaeel'
-       );
-   console.log(result);
- };
+  const [signUpsignIn, setSignUpSignIn] = useState("SI")
+
 
  firebaseApp.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
     console.log(user.uid)
     setStage( 'loggedIn');
+    setSignUpSignIn('SI')
+
   } else {
     // No user is signed in.
     console.log('no user logged In')
@@ -40,14 +31,20 @@ function App() {
   }
 });
 
+ const changeState = (value) =>{
 
+  // SI OR SU
+   setSignUpSignIn(value);
+ }
 
 
   return (
     <div className="App">
       <Navbar stage={stage}/>
-      {stage === 'loggedIn' &&  <Feed/>}
-      {stage === 'notloggedIn' && <SignUp/>}
+      
+      {stage === 'loggedIn' &&  <Feed />}
+      {stage === 'notloggedIn' && signUpsignIn === 'SI' &&  <SignIn changeState={changeState} /> }
+      {stage === 'notloggedIn' && signUpsignIn === 'SU' &&  <SignUp changeState={changeState} /> }
     </div>
   );
 }

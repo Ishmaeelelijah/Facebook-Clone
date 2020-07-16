@@ -4,7 +4,7 @@ import {firebaseApp} from "../firebase"
 
 export default ()  =>{
     return (
-        <div style={{background: 'pink'}}>
+        <div style={{background: 'black'}}>
             <Container>
             <Navbar
   alignLinks="right"
@@ -26,7 +26,10 @@ export default ()  =>{
   }}
 >
   
-  <NavItem href="components.html" onClick={() => firebaseApp.auth().signOut()}>
+  <NavItem href="components.html" onClick={event => {
+  event.preventDefault();
+  firebaseApp.auth().signOut();
+  }}>
     Log Out
   </NavItem>
 </Navbar>

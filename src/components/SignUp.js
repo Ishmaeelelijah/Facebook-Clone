@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import {TextInput} from 'react-materialize'
+import {TextInput, Icon} from 'react-materialize'
 import signUp from '../api/signUp'
 
 
 
-export default () => {
+export default (props) => {
 
     const [data, setData] = useState({
         firstName:"",
@@ -32,13 +32,18 @@ export default () => {
 
     return (
         <div  style={{display:'flex', justifyContent:'center'}} >
-            {JSON.stringify(data)}
+        
            <div className="outerBox">
+               <h4>Sign Up</h4>
            <TextInput id="TextInput-4"label="First Name" onChange={e =>onChangeText('firstName',e.target.value)} />
            <TextInput id="TextInput-4"label="Last Name" onChange={e =>onChangeText('lastName',e.target.value)} />
            <TextInput id="TextInput-4"label="Email Address" onChange={e =>onChangeText('email',e.target.value)} />
            <TextInput id="TextInput-4"label="Password" onChange={e =>onChangeText('password',e.target.value)} />
-           <button onClick={onSubmit}>Submit</button>
+           <button  className="btn waves-effect waves-"   onClick={onSubmit}>
+          Submit 
+          <Icon right>send</Icon>
+           </button>
+           <p>Already have an account? <span onClick={() => {props.changeState('SI')}}>Sign In</span></p>
             </div> 
         </div>
     )
