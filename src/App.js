@@ -1,9 +1,9 @@
-import React,{useEffect, useState} from 'react';
+import React,{ useState} from 'react';
 import 'materialize-css/dist/css/materialize.min.css'
 import './App.css';
-import {userRef, firebaseApp} from './firebase';
-import signUp from './api/signUp';
-import signIn from './api/signIn';
+import {firebaseApp} from './firebase';
+// import signUp from './api/signUp';
+// import signIn from './api/signIn';
 import SignUp from './components/SignUp'
 import Feed from './components/Feed'
 import Navbar from './Reusable/NavBar'
@@ -11,6 +11,9 @@ import SignIn from './components/SignIn';
 
 
 function App() {
+ 
+
+  
  
   const [stage, setStage] = useState("");
   const [signUpsignIn, setSignUpSignIn] = useState("SI")
@@ -20,8 +23,8 @@ function App() {
   if (user) {
     // User is signed in.
     console.log(user.uid)
-    setStage( 'loggedIn');
-    setSignUpSignIn('SI')
+    setStage('loggedIn');
+    setSignUpSignIn('SI');
 
   } else {
     // No user is signed in.

@@ -1,12 +1,13 @@
 import React from "react";
 import {Icon} from 'react-materialize';
+import profilepic from '../images/Screenshot (60).png'
 
 export default () =>{
     return(
         <div className='outerBox' m10 style={{width:"300px",height:"170px"}}>
             <div style={{display: "flex", marginBottom:10}}>
                 <div style={{width:40, height:40,borderRadius:30,overflow:'hidden'}}>
-                    <img src='https://images.app.goo.gl/eMgRqQybkRFrPViQA'
+                    <img src={profilepic}
                     alt='profile-pic'
                     height='100%'/>
 

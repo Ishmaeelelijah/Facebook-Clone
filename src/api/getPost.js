@@ -1,8 +1,13 @@
 import { postRef } from '../firebase';
 
-export default () => {
-    console.log('into the function')
-    postRef.once( 'value', snap=> {
-        return snap.val();
+export default async () => {
+     console.log('into the function')
+
+     var data;
+     await  postRef.once( 'value', snap=> {
+     data = snap.val()
     });
+     return data;
+
+   
 };

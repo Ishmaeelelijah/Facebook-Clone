@@ -2,7 +2,7 @@ import React from 'react'
 import {Navbar,Icon, NavItem , Container} from 'react-materialize'
 import {firebaseApp} from "../firebase"
 
-export default ()  =>{
+export default ({stage})  =>{
     return (
         <div style={{background: 'black'}}>
             <Container>
@@ -25,13 +25,16 @@ export default ()  =>{
     preventScrolling: true
   }}
 >
+  {stage ==="loggedIn" && (
+    <NavItem 
+    onClick={event => {
+   event.preventDefault();
+   firebaseApp.auth().signOut();
+   }}>
+     Log Out
+   </NavItem>
+  )}
   
-  <NavItem href="components.html" onClick={event => {
-  event.preventDefault();
-  firebaseApp.auth().signOut();
-  }}>
-    Log Out
-  </NavItem>
 </Navbar>
 </Container>
 
