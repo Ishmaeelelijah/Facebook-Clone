@@ -32,7 +32,7 @@ export default () => {
     return (
         <div>
            {posts.map(singlePost => (
-              <SinglePost details={singlePost} myUID={myUID} />
+              <SinglePost key={singlePost.postKey} details={singlePost} myUID={myUID} />
              ))}     
         </div>
     )

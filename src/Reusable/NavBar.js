@@ -8,7 +8,7 @@ export default ({stage})  =>{
             <Container>
             <Navbar
   alignLinks="right"
-  brand={<a className="brand-logo" href="www.google.com">Logo</a>}
+  brand={<a className="brand-logo" href="www.google.com">MyBook</a>}
  
   id="mobile-nav"
   className="custom-navbar"

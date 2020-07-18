@@ -3,9 +3,10 @@ import {Dropdown,Icon,Button} from 'react-materialize'
 import { userRef } from '../firebase';
 import moment from  'moment'
 import profilepic from '../images/Screenshot (60).png'
+import deletePost from '../api/deletePost';
 
 
-export default ( {details , myUID}) => {
+export default  ({details , myUID}) => {
     const [firstName,setFirstName] = useState("");
     const [lastName,setLastName] = useState("");
 
@@ -19,7 +20,13 @@ export default ( {details , myUID}) => {
         if (details&&details.createdBy) {
             getName();
         }
-    },[])
+    },[]);
+
+    const onPostDelete = (event,postKey) =>{
+        event.preventDefault();
+        const result = deletePost(postKey);
+        console.log(result)
+    }
 
 
 
@@ -62,7 +69,7 @@ export default ( {details , myUID}) => {
                                      <a href="w" style={{color:"black"}}>
                                          Edit
                                      </a>
-                                     <a href="w" style={{color:"black"}}>
+                                     <a href="w" style={{color:"black"}} onClick={(event) => {onPostDelete(event,details.postKey)}}     >
                                          Delete
                                      </a>
                                      </Dropdown>

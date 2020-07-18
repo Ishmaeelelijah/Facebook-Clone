@@ -18,7 +18,7 @@ export default ( props) => {
     const onSubmit = async () => {
         const result =   signIn(data);
         if (result === true) {
-            console.log("Welcome to my facebook")
+            console.log("Welcome to my facebook");
         }else if ( result === false){
             console.log("You did not make it ")
         }
