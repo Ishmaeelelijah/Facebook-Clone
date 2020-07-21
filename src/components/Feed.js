@@ -6,12 +6,13 @@ import PostList from './PostList'
 
 
 
-export default () => {
+export default ({userDetails}) => {
+   
     return (
         <Container>
             <Row>
                 <Col>
-                    <Profile/>
+                    <Profile userDetails={userDetails} />
                 </Col>
                 <Col s={12} m={4}>
                     <AddPost/>
